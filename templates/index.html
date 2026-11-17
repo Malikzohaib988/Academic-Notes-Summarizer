@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Turn your study notes into summaries, explanations, and practice questions.">
+    <title>AI Study Material Analyzer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+</head>
+<body>
+    <main class="container">
+        <header class="hero">
+            <p class="eyebrow">AI-POWERED LEARNING TOOL</p>
+            <h1>AI Study Material Analyzer</h1>
+            <p class="subtitle">Turn your study notes into summaries, simple explanations, and practice questions.</p>
+        </header>
+
+        <section class="panel">
+            <form id="analyzer-form">
+                <label for="notes">Paste your study notes</label>
+                <textarea id="notes" name="notes" rows="11" maxlength="12000"
+                    placeholder="Paste your class notes here..." required></textarea>
+                <div class="character-count"><span id="char-count">0</span> / 12,000 characters</div>
+
+                <div class="form-row">
+                    <div class="task-field">
+                        <label for="task">Choose an AI task</label>
+                        <select id="task" name="task">
+                            <option value="summary">Create a summary</option>
+                            <option value="explain">Explain in simple words</option>
+                            <option value="questions">Generate practice questions</option>
+                        </select>
+                    </div>
+                    <button id="analyze-button" type="submit">Analyze Notes</button>
+                </div>
+            </form>
+
+            <p id="status" class="status" role="status" aria-live="polite"></p>
+            <section class="result-section">
+                <div class="result-heading">
+                    <h2>AI Result</h2>
+                    <button id="copy-button" class="copy-button" type="button" disabled>Copy result</button>
+                </div>
+                <div id="result" class="result" aria-live="polite">Your result will appear here.</div>
+            </section>
+            <p class="powered">Powered by Groq</p>
+        </section>
+
+        <footer><p>AI Study Material Analyzer · Learning project</p></footer>
+    </main>
+</body>
+</html>
